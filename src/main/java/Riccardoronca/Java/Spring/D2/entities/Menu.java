@@ -1,4 +1,4 @@
-package entities;
+package Riccardoronca.Java.Spring.D2.entities;
 import lombok.Getter;
 import lombok.Setter;
 

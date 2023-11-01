@@ -1,39 +1,30 @@
-package entities;
+package Riccardoronca.Java.Spring.D2.entities;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 
-public class Topping {
+public class Bevande {
     private String nome;
     private int calorie;
     private double prezzo;
 
-    public String getNome() {
-        return nome;
-    }
-
-    public Topping(String nome, int calorie, double prezzo) {
+    public Bevande(String nome, int calorie, double prezzo) {
         this.nome = nome;
         this.calorie = calorie;
         this.prezzo = prezzo;
-
-
     }
 
     @Override
-
     public String toString() {
-        return "Topping{" +
+        return "Bevande{" +
                 "name ='"+" " + nome +
-                ", calories ="+" " + calorie +" " + "Kcal"+
-                ", price =" +" "+ prezzo + " " +"%"+
+                ", calories =" +" "+ calorie + " " +"Kcal"+
+                ", price =" +" "+ prezzo + " " +"$" +
                 '}';
+
     }
 
-
-
 }
-
 

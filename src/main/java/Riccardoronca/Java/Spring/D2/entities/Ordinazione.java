@@ -1,4 +1,4 @@
-package entities;
+package Riccardoronca.Java.Spring.D2.entities;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,18 +14,10 @@ public abstract class Ordinazione {
         return prezzo;
     }
 
-    public String getProdotto() {
-        return prodotto;
-
-
-    }
-
     public Ordinazione(String nome, int calorie, double prezzo) {
         this.prodotto = nome;
         this.calorie = calorie;
         this.prezzo = prezzo;
-
-
 
 
     }
@@ -37,4 +29,6 @@ public abstract class Ordinazione {
                 ", prezzo =" +" "+ prezzo + " " +"$";
 
     }
+
+
 }

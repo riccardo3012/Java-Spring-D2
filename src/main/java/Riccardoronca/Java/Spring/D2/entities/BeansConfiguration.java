@@ -1,8 +1,12 @@
-package entities;
+package Riccardoronca.Java.Spring.D2.entities;
 
+import Riccardoronca.Java.Spring.D2.entities.Bevande;
+import Riccardoronca.Java.Spring.D2.entities.Menu;
+import Riccardoronca.Java.Spring.D2.entities.Pizza;
+import Riccardoronca.Java.Spring.D2.entities.Topping;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
+import org.springframework.context.annotation.Scope;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -44,8 +48,8 @@ public class BeansConfiguration {
 //******************************************* PIZZE ****************************************************
 
 
-    @Bean (name = "pizza margherita")
-    Pizza pizzaMargherita() {
+    @Bean
+    Pizza getMargherita() {
         List<String> toppingList = new ArrayList<>();
         toppingList.add(getPomodoro().getNome());
         toppingList.add(getMozzarella().getNome());
@@ -53,20 +57,23 @@ public class BeansConfiguration {
 
     }
 
-    @Bean (name = "pizza americana")
-    Pizza pizzaAmericana() {
+    @Bean(name = "getAmericana")
+    public Pizza getAmericana() {
         List<String> toppingList = new ArrayList<>();
         toppingList.add(getPomodoro().getNome());
         toppingList.add(getMozzarella().getNome());
         toppingList.add(getWustel().getNome());
         toppingList.add(getPatatine().getNome());
         return new Pizza("Americana", toppingList, 1550, 8.50);
-
     }
 
 
-    @Bean (name = "pizza Boscaiola")
-    Pizza pizzaBoscaiola() {
+
+
+
+
+    @Bean
+    Pizza getBoscaiola() {
         List<String> toppingList = new ArrayList<>();
         toppingList.add(getMozzarella().getNome());
         toppingList.add(getFunghi().getNome());
@@ -107,8 +114,9 @@ public class BeansConfiguration {
 
     //******************************************* Menu ****************************************************
     @Bean
+    @Scope("prototype")
     Menu getMenu() {
-        List<Pizza> pizzeList = new ArrayList<>(Arrays.asList(pizzaMargherita(),pizzaAmericana(),pizzaBoscaiola()));
+        List<Pizza> pizzeList = new ArrayList<>(Arrays.asList(getMargherita(),getAmericana(),getBoscaiola()));
         List<Topping> toppingList = new ArrayList<>(Arrays.asList(getPomodoro(), getMozzarella(), getWustel(), getPatatine(), getFunghi(), getSalsiccia()));
         List<Bevande> bevandeList = new ArrayList<>(Arrays.asList(getAcqua(),getSoda(), getBirra(),getAranciata(), getVino()));
         return new Menu(pizzeList, bevandeList, toppingList);
