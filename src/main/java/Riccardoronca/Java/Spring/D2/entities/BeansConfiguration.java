@@ -67,11 +67,6 @@ public class BeansConfiguration {
         return new Pizza("Americana", toppingList, 1550, 8.50);
     }
 
-
-
-
-
-
     @Bean
     Pizza getBoscaiola() {
         List<String> toppingList = new ArrayList<>();
@@ -113,6 +108,7 @@ public class BeansConfiguration {
     }
 
     //******************************************* Menu ****************************************************
+
     @Bean
     @Scope("prototype")
     Menu getMenu() {

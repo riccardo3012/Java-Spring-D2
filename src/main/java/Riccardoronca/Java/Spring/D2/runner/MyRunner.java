@@ -19,13 +19,16 @@ public class MyRunner implements CommandLineRunner {
     @Override
     public void run(String... arg) throws Exception
     {
-        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(JavaSpringD2Application.class);
-        List<Ordinazione> menuList = new ArrayList<>(Arrays.asList( (Ordinazione) ctx.getBean("getAmericana"), (Ordinazione) ctx.getBean("getSoda")));
-        Ordini ordinazioneN1 = (Ordini) ctx.getBean("ordine");
 
-        ordinazioneN1.setOrdine(menuList);
-        ordinazioneN1.total();
-        log.info (ordinazioneN1.toString());
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(JavaSpringD2Application.class);
+        List<Ordinazione> elementiMenuList = new ArrayList<>();
+
+
+        Ordini ordinen1 = (Ordini) ctx.getBean("order_component");
+
+        ordinen1.setOrdine(elementiMenuList);
+        ordinen1.total();
+        log.info(ordinen1.toString());
         ctx.close();
 
 

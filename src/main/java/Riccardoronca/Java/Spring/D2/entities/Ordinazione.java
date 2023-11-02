@@ -18,8 +18,6 @@ public abstract class Ordinazione {
         this.prodotto = nome;
         this.calorie = calorie;
         this.prezzo = prezzo;
-
-
     }
 
     @Override
